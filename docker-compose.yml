@@ -1,0 +1,63 @@
+version: "3.9"
+
+services:
+  api:
+    container_name: stackcraft-api
+    build: ./api
+    ports:
+      - "5000:5000"
+    volumes:
+      # ホストのファイル変更がDockerに即反映される
+      - ./api:/app
+      - /app/node_modules
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    container_name: stackcraft-db
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_USER: stackuser
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: stackcraft_db
+      TZ: "Asia/Tokyo"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/db/data:/var/lib/mysql
+      - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
+    healthcheck:
+      test:
+        ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  admin:
+    container_name: stackcraft-admin
+    build: ./admin
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./admin:/app
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: stackcraft-phpmyadmin
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root
+    depends_on:
+      - db
+
+volumes:
+  db_data:

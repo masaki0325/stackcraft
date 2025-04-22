@@ -1,0 +1,82 @@
+# Dependencies
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build
+dist/
+build/
+coverage/
+
+# Flutter/Dart
+app/.dart_tool/
+app/.flutter-plugins
+app/.flutter-plugins-dependencies
+app/build/
+app/.pub/
+app/.packages
+app/.metadata
+app/ios/Pods/
+app/ios/.symlinks/
+app/ios/Flutter/Flutter.framework/
+app/ios/Flutter/Flutter.podspec
+app/ios/Flutter/Generated.xcconfig
+app/android/.gradle/
+app/android/local.properties
+
+# React
+admin/build/
+admin/coverage/
+admin/.next/
+admin/out/
+admin/.env.local
+admin/.env.development.local
+admin/.env.test.local
+admin/.env.production.local
+admin/npm-debug.log*
+admin/yarn-debug.log*
+admin/yarn-error.log*
+
+# Node.js
+api/node_modules/
+api/dist/
+api/coverage/
+api/.env
+
+# Docker
+docker/db/data/
+docker/db/logs/
+.docker/
+
+# Package locks (必要に応じて)
+# package-lock.json
+# yarn.lock
+
+# その他
+*.cache
+*.bak
+*.tmp
+*.temp

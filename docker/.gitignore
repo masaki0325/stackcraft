@@ -1,0 +1,36 @@
+# MySQL data
+mysql/data/*
+!mysql/data/.gitkeep
+
+# MySQL logs
+mysql/logs/*
+!mysql/logs/.gitkeep
+
+# MySQL custom config
+mysql/my.cnf
+
+# Node.js logs
+node/logs/*
+!node/logs/.gitkeep
+
+# Nginx logs
+nginx/logs/*
+!nginx/logs/.gitkeep
+
+# SSL certificates
+nginx/ssl/*.pem
+nginx/ssl/*.key
+nginx/ssl/*.crt
+
+# Environment specific configs
+*.env
+*.env.*
+!*.env.example
+
+# Temporary files
+tmp/*
+!tmp/.gitkeep
+
+# OS generated files
+.DS_Store
+Thumbs.db 

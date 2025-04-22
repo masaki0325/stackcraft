@@ -1,0 +1,12 @@
+{
+  "workbench.colorCustomizations": {
+    "debugConsole.infoForeground": "#ffffff",
+    "debugConsole.warningForeground": "#ffff00",
+    "debugConsole.errorForeground": "#ff0000",
+    "debugConsole.sourceForeground": "#ffffff",
+    "debugConsole.background": "#000000"
+  },
+  "dart.lineLength": 100,
+  "editor.rulers": [100],
+  "editor.wordWrapColumn": 100
+}

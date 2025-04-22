@@ -1,0 +1,196 @@
+{
+  "info": {
+    "_postman_id": "7077cbef-7a07-40cc-9a5a-72e4a21c4e3e",
+    "name": "craft",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "16527619"
+  },
+  "item": [
+    {
+      "name": "ユーザー一覧",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:5000/api/users",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "users"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ユーザー登録",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\" : \"test\",\n\t\"email\": \"test@gmail.com\",\n\t\"password\": \"password\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:5000/api/auth/register",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "auth", "register"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ノート作成",
+      "request": {
+        "auth": {
+          "type": "bearer"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlhdCI6MTc0NDQzNjE5NywiZXhwIjoxNzQ1MDQwOTk3fQ.ghM-Wt662WSG0mwSqcUdnl3RFO6JFP7dthsLor2CIsM",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"マイノート\",\n  \"content\": \"これは秘密の日記です。\",\n  \"imageUrl\": \"https://example.com/image.png\"\n}\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:5000/api/notes/create",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "notes", "create"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "自分のノート一覧",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:5000/api/notes/my",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "notes", "my"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "自分のノートの削除",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlhdCI6MTc0NDQzNjE5NywiZXhwIjoxNzQ1MDQwOTk3fQ.ghM-Wt662WSG0mwSqcUdnl3RFO6JFP7dthsLor2CIsM",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "localhost:5000/api/notes/delete/4",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "notes", "delete", "4"],
+          "query": [
+            {
+              "key": "id",
+              "value": "4",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "自分のノートの更新",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImlhdCI6MTc0NDQzNjE5NywiZXhwIjoxNzQ1MDQwOTk3fQ.ghM-Wt662WSG0mwSqcUdnl3RFO6JFP7dthsLor2CIsM",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 3,\n  \"title\": \"更新されたタイトル\",\n  \"content\": \"これは更新されたノートの内容です。\",\n  \"imageUrl\": \"https://example.com/new-image.png\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:5000/api/notes/update",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "notes", "update"],
+          "query": [
+            {
+              "key": "id",
+              "value": "4",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "トークン更新",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "ログイン",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"test@gmail.com\",\n  \"password\" : \"password\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:5000/api/auth/login",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "auth", "login"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
