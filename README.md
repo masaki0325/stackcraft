@@ -68,40 +68,27 @@ StackCraft は、3 つのプロジェクトで構成される総合的なノー�
 ```
 .
 ├── app/                    # Flutterモバイルアプリ
-│   ├── lib/               # Dartソースコード
-│   │   ├── models/       # データモデル
-│   │   ├── providers/    # Riverpodプロバイダー
-│   │   ├── screens/      # 画面UI
-│   │   ├── services/     # APIサービス
-│   │   └── widgets/      # 再利用可能なウィジェット
-│   └── test/             # テストコード
+│   ├── android/           # Androidプロジェクト
+│   ├── ios/              # iOSプロジェクト
+│   └── lib/              # Dartソースコード
+│       ├── config/      # アプリ設定
+│       └── features/    # 機能モジュール
+│           ├── auth/   # 認証機能
+│           ├── notes/  # ノート機能
+│           └── user/   # ユーザー機能
 │
 ├── admin/                  # React管理画面
-│   ├── src/              # ソースコード
-│   │   ├── components/   # Reactコンポーネント
-│   │   ├── hooks/       # カスタムフック
-│   │   ├── pages/       # ページコンポーネント
-│   │   ├── services/    # APIサービス
-│   │   └── utils/       # ユーティリティ関数
-│   └── tests/           # テストコード
+│   └── src/              # ソースコード
+│       └── components/   # Reactコンポーネント
 │
 ├── api/                    # Node.jsバックエンド
 │   ├── controllers/      # ルートハンドラー
 │   ├── middleware/      # カスタムミドルウェア
 │   ├── models/          # Sequelizeモデル
 │   ├── routes/          # ルート定義
-│   ├── validators/      # バリデーションルール
-│   └── tests/          # テストコード
+│   └── validators/      # バリデーションルール
 │
-├── docker/                 # Docker設定
-│   ├── mysql/           # MySQLコンテナ設定
-│   ├── nginx/           # Nginxコンテナ設定
-│   └── node/            # Nodeコンテナ設定
-│
-└── docs/                   # ドキュメント
-    ├── api/              # APIドキュメント
-    ├── mobile/           # モバイルアプリドキュメント
-    └── admin/            # 管理画面ドキュメント
+└── docker/                 # Docker設定
 ```
 
 ## セットアップ手順
@@ -180,14 +167,6 @@ flutter run
 | `/api/notes`     | POST     | ノート作成     |
 | `/api/notes/:id` | PUT      | ノート更新     |
 | `/api/notes/:id` | DELETE   | ノート削除     |
-
-### 管理者 API
-
-| エンドポイント         | メソッド | 説明             |
-| ---------------------- | -------- | ---------------- |
-| `/api/admin/users`     | GET      | ユーザー一覧取得 |
-| `/api/admin/users/:id` | PUT      | ユーザー更新     |
-| `/api/admin/users/:id` | DELETE   | ユーザー削除     |
 
 ## API ドキュメント
 
